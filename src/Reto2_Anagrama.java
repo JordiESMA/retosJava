@@ -1,4 +1,3 @@
-package src;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -24,13 +23,14 @@ public class Reto2_Anagrama {
         String palabra2 = teclado.next();
 
         System.out.println(esAnagrama( palabra1 , palabra2));
+        teclado.close();
         
     }
 
 
-    public static boolean esAnagrama(String palabra1, String palabra2) {
+    public static String esAnagrama(String palabra1, String palabra2) {
     if (palabra1.equalsIgnoreCase(palabra2)) {
-        return false;
+        return "Són iguales no són anagramas.";
     }
 
     char[] letras1 = palabra1.toLowerCase().toCharArray();
@@ -39,6 +39,8 @@ public class Reto2_Anagrama {
     Arrays.sort(letras1);
     Arrays.sort(letras2);
 
-    return Arrays.equals(letras1, letras2);
+    //condicion ? valor_si_true : valor_si_false
+
+    return Arrays.equals(letras1, letras2) ? "És anagrama." : "No és.";
 }
 }
